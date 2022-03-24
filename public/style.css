@@ -1,0 +1,137 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap');
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  user-select: none;
+  font-family: 'Poppins', sans-serif;
+}
+body {
+  /* background: #18191a; */
+  overflow: hidden;
+  background-image: url(./static/pexels-felix-mittermeier-956981.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.title {
+  position: absolute;
+  top: 27%;
+  left: 50%;
+  font-size: 100px;
+  transform: translate(-50%, -50%);
+  color: #c1c7d1;
+}
+.main {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.main .drop-btn {
+  width: 600px;
+  background: #242526;
+  border-radius: 5px;
+  color: #b0b3b8;
+  padding: 0 20px;
+  display: flex;
+}
+.main input {
+  flex-grow: 1;
+  color: #b0b3b8;
+  line-height: 55px;
+  background: #242526;
+  outline: none;
+  border: none;
+  font-size: 20px;
+  font-weight: 500;
+}
+.main .drop-btn span {
+  margin-left: auto;
+  line-height: 50px;
+  font-size: 28px;
+  cursor: pointer;
+}
+
+.main .drop-btn span:nth-of-type(1) {
+  padding-right: 15px;
+  color: #919192;
+}
+
+.main .drop-btn span:nth-of-type(2) {
+  border: 1px solid #b0b3b8;
+  color: #b0b3b8;
+  height: 40px;
+  margin: 8px 0;
+}
+
+.main .drop-btn span:nth-of-type(3) {
+  padding-left: 15px;
+}
+
+.main .tooltip {
+  position: absolute;
+  right: 20px;
+  bottom: -20px;
+  height: 15px;
+  width: 15px;
+  background: #242526;
+  transform: rotate(45deg);
+  display: none;
+}
+.main .tooltip.show {
+  display: block;
+}
+.main .wrapper {
+  position: absolute;
+  top: 65px;
+  display: flex;
+  width: 600px;
+  overflow: hidden;
+  border-radius: 5px;
+  background: #242526;
+  display: none;
+  transition: all 0.3s ease;
+}
+.main .wrapper.show {
+  display: block;
+  display: flex;
+}
+.wrapper ul {
+  width: 600px;
+  list-style: none;
+  padding: 10px;
+  transition: all 0.3s ease;
+}
+.wrapper ul li {
+  line-height: 55px;
+}
+.wrapper ul li a {
+  position: relative;
+  color: #b0b3b8;
+  font-size: 18px;
+  font-weight: 500;
+  padding: 0 10px;
+  display: flex;
+  border-radius: 8px;
+  align-items: center;
+  text-decoration: none;
+}
+.wrapper ul li:hover a {
+  background: #3a3b3c;
+}
+ul li a .icon {
+  height: 40px;
+  width: 40px;
+  margin-right: 13px;
+  background: #ffffff1a;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  border-radius: 50%;
+}
+ul li a .icon span {
+  line-height: 40px;
+  font-size: 20px;
+  color: #b0b3b8;
+}
