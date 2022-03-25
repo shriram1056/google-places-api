@@ -21,13 +21,13 @@ function showAddresses() {
   } else {
     let Addresses = ''
     addressesArray.forEach((element) => {
-      Addresses += `<li onclick=remove(this)>
+      Addresses += `<li>
             <div class="icon">
               <span class="fas fa-map-marker-alt"></span>
             </div>
             <span class="search-text">
               ${element}
-              <span class="delete-icon" ><i class="fas fa-trash"></i></span>
+              <span class="delete-icon" onclick=remove(this)><i class="fas fa-trash"></i></span>
             </span>
           </li>`
     })
@@ -125,7 +125,10 @@ function select(element) {
 function remove(element) {
   let getLocalStorageData = localStorage.getItem('Address')
   listArray = JSON.parse(getLocalStorageData)
-  listArray.splice(listArray.indexOf(element.innerText), 1)
+  listArray.splice(
+    listArray.indexOf(element.parentNode.parentNode.innerText),
+    1
+  )
   localStorage.setItem('Address', JSON.stringify(listArray))
   showAddresses()
 }
