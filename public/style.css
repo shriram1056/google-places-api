@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Poppins:400,500,650,650&display=swap');
 * {
   margin: 0;
   padding: 0;
@@ -18,7 +18,7 @@ body {
   position: absolute;
   top: 27%;
   left: 50%;
-  font-size: 100px;
+  font-size: 120px;
   transform: translate(-50%, -50%);
   color: white;
 }
@@ -28,8 +28,10 @@ body {
   left: 50%;
   transform: translate(-50%, -50%);
 }
+
+/* search bar */
 .main .search_bar {
-  width: 600px;
+  width: 650px;
   background: #242526;
   border-radius: 5px;
   color: white;
@@ -43,7 +45,7 @@ body {
   background: #242526;
   outline: none;
   border: none;
-  font-size: 20px;
+  font-size: 22px;
   font-weight: 500;
 }
 .main .search_bar span {
@@ -62,7 +64,8 @@ body {
 }
 
 .main .search_bar span:nth-of-type(2) {
-  border: 1px solid white;
+  border: 0.01px solid rgb(238, 234, 234);
+  opacity: 0.5;
   color: white;
   height: 40px;
   margin: 8px 0;
@@ -71,6 +74,7 @@ body {
 .main .search_bar span:nth-of-type(3) {
   padding-left: 15px;
 }
+/* search bar */
 
 /* drop down */
 .main .tooltip {
@@ -79,7 +83,7 @@ body {
   bottom: -20px;
   height: 15px;
   width: 15px;
-  background: white;
+  background: #242526;
   transform: rotate(45deg);
   display: none;
 }
@@ -90,7 +94,7 @@ body {
   position: absolute;
   top: 65px;
   display: flex;
-  width: 600px;
+  width: 650px;
   overflow: hidden;
   border-radius: 5px;
   background: #242526;
@@ -101,29 +105,33 @@ body {
   display: block;
 }
 .wrapper ul {
-  width: 600px;
+  width: 650px;
   list-style: none;
-  padding: 10px;
+  padding: 10px 0;
   transition: all 0.3s ease;
 }
 .wrapper ul li {
   line-height: 55px;
-}
-.wrapper ul li a {
   position: relative;
   color: white;
   font-size: 18px;
-  font-weight: 500;
   padding: 0 10px;
+  font-weight: 500;
   display: flex;
-  border-radius: 8px;
   align-items: center;
-  text-decoration: none;
 }
-.wrapper ul li:hover a {
+
+.wrapper ul li span.search-text {
+  width: 570px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.wrapper ul li:hover {
   background: #3a3b3c;
 }
-ul li a .icon {
+ul li .icon {
   height: 40px;
   width: 40px;
   margin-right: 13px;
@@ -132,8 +140,9 @@ ul li a .icon {
   justify-content: center;
   text-align: center;
   border-radius: 50%;
+  overflow: auto;
 }
-ul li a .icon span {
+ul li .icon span {
   line-height: 40px;
   font-size: 20px;
   color: white;
@@ -144,7 +153,7 @@ ul li a .icon span {
 .main .autocom-box {
   position: absolute;
   top: 56px;
-  width: 600px;
+  width: 650px;
   overflow: hidden;
   border-radius: 0 0 20px 20px;
   background: #242526;
@@ -153,30 +162,37 @@ ul li a .icon span {
 }
 
 .autocom-box ul {
-  width: 600px;
+  width: 650px;
   list-style: none;
-  padding: 10px;
+  padding: 10px 0;
   transition: all 0.3s ease;
 }
 
-.autocom-box li {
+.autocom-box ul li {
   line-height: 55px;
-}
-
-.autocom-box li a {
   position: relative;
   color: white;
   font-size: 18px;
   font-weight: 500;
   padding: 0 10px;
   display: flex;
-  border-radius: 8px;
   align-items: center;
-  text-decoration: none;
 }
 
-.autocom-box ul li:hover a {
+.autocom-box ul li span.search-text {
+  width: 570px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.autocom-box ul li:nth-of-type(1) {
   background: #3a3b3c;
+  border-left: 5px inset;
+}
+.autocom-box ul li:hover {
+  background: #3a3b3c;
+  border-left: 5px inset;
 }
 
 .main .autocom-box.active {

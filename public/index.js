@@ -8,11 +8,13 @@ const searchWrapper = document.querySelector('.autocom-box')
 drop_btn.onclick = () => {
   menu_wrapper.classList.toggle('show')
   tooltip.classList.toggle('show')
+  searchWrapper.classList.remove('active') //hide autocomplete box
+  searchBar.classList.remove('active')
 }
 let suggestions = [
-  'Channel',
-  'Blogger',
-  'Bollywood',
+  'API Hockey PROS Store,17-25 Meadowbank Rd, Cornwall, PE C0A 1H0',
+  'Mark Arendz Provincial Ski Park at Brookvale,2018 PE-13, North Wiltshire, PE C0A 1Y0',
+  'The Spice Store, 127 St Peters Rd, Charlottetown, PE C1A 5P3',
   'Vlogger',
   'Vechiles',
   'Facebook',
@@ -21,6 +23,8 @@ let suggestions = [
   'Designer',
   'Developer',
 ]
+
+let searchBarChildren = searchBar.children
 
 search_input.onkeyup = (e) => {
   let userData = e.target.value
@@ -33,16 +37,19 @@ search_input.onkeyup = (e) => {
     emptyArray = emptyArray.map((data) => {
       // passing return data inside li tag
       return (data = `<li>
-            <a href="#">
               <div class="icon">
                 <span class="fas fa-map-marker-alt"></span>
               </div>
+              <span class='search-text'>
               ${data}
-            </a>
+              </span>
             </li>`)
     })
-    searchWrapper.classList.add('active') //show autocomplete box
+    searchWrapper.classList.add('active')
     searchBar.classList.add('active')
+    menu_wrapper.classList.remove('show')
+    tooltip.classList.remove('show')
+
     showSuggestions(emptyArray)
     let allList = suggBox.querySelectorAll('li')
     for (let i = 0; i < allList.length; i++) {
@@ -50,7 +57,7 @@ search_input.onkeyup = (e) => {
       allList[i].setAttribute('onclick', 'select(this)')
     }
   } else {
-    searchWrapper.classList.remove('active') //hide autocomplete box
+    searchWrapper.classList.remove('active')
     searchBar.classList.remove('active')
   }
 }
@@ -60,11 +67,10 @@ function showSuggestions(list) {
   if (!list.length) {
     userValue = search_input.value
     listData = `<li>
-            <a href="#">
               <div class="icon">
                 <span class="fas fa-map-marker-alt"></span>
               </div>
-              Add Missing Place to Google Maps</a></li>`
+              There is no result for the given keyword</li>`
   } else {
     listData = list.join('')
   }
