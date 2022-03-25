@@ -5,12 +5,8 @@ const menu_wrapper = document.querySelector('.wrapper')
 const search_input = document.querySelector('.search_input')
 const suggBox = document.querySelector('.suggestion-box')
 const searchWrapper = document.querySelector('.autocom-box')
-drop_btn.onclick = () => {
-  menu_wrapper.classList.toggle('show')
-  tooltip.classList.toggle('show')
-  searchWrapper.classList.remove('active') //hide autocomplete box
-  searchBar.classList.remove('active')
-}
+const AddressBox = document.querySelector('.menu-bar')
+
 let suggestions = [
   'API Hockey PROS Store,17-25 Meadowbank Rd, Cornwall, PE C0A 1H0',
   'Mark Arendz Provincial Ski Park at Brookvale,2018 PE-13, North Wiltshire, PE C0A 1Y0',
@@ -24,7 +20,43 @@ let suggestions = [
   'Developer',
 ]
 
-let searchBarChildren = searchBar.children
+function showAddresses() {
+  let getLocalStorageData = localStorage.getItem('Address')
+  let addressesArray = JSON.parse(getLocalStorageData)
+  if (getLocalStorageData == null || !addressesArray.length) {
+    AddressBox.innerHTML = `
+    <li>
+      <div class="icon">
+        <span class="fas fa-map-marker-alt"></span>
+      </div>
+      There is no stored addresses
+    </li>`
+  } else {
+    let Addresses = ''
+    addressesArray.forEach((element) => {
+      Addresses += `<li onclick=remove(this)>
+            <div class="icon">
+              <span class="fas fa-map-marker-alt"></span>
+            </div>
+            <span class="search-text">
+              ${element}
+              <span class="delete-icon" ><i class="fas fa-trash"></i></span>
+            </span>
+          </li>`
+    })
+    AddressBox.innerHTML = Addresses
+    search_input.value = ''
+  }
+}
+
+showAddresses()
+
+drop_btn.onclick = () => {
+  menu_wrapper.classList.toggle('show')
+  tooltip.classList.toggle('show')
+  searchWrapper.classList.remove('active') //hide autocomplete box
+  searchBar.classList.remove('active')
+}
 
 search_input.onkeyup = (e) => {
   let userData = e.target.value
@@ -34,9 +66,10 @@ search_input.onkeyup = (e) => {
       //filtering array value and user characters to lowercase and return only those words which are start with user enetered chars
       return data.toLocaleLowerCase().startsWith(userData.toLocaleLowerCase())
     })
+
     emptyArray = emptyArray.map((data) => {
       // passing return data inside li tag
-      return (data = `<li>
+      return (data = `<li onclick=select(this)>
               <div class="icon">
                 <span class="fas fa-map-marker-alt"></span>
               </div>
@@ -51,11 +84,6 @@ search_input.onkeyup = (e) => {
     tooltip.classList.remove('show')
 
     showSuggestions(emptyArray)
-    let allList = suggBox.querySelectorAll('li')
-    for (let i = 0; i < allList.length; i++) {
-      //adding onclick attribute in all li tag
-      allList[i].setAttribute('onclick', 'select(this)')
-    }
   } else {
     searchWrapper.classList.remove('active')
     searchBar.classList.remove('active')
@@ -75,4 +103,37 @@ function showSuggestions(list) {
     listData = list.join('')
   }
   suggBox.innerHTML = listData
+}
+
+function select(element) {
+  let selectData = element.innerText
+  search_input.value = ''
+  console.log(selectData)
+  let getLocalStorageData = localStorage.getItem('Address')
+  if (getLocalStorageData == null) {
+    listArray = []
+  } else {
+    listArray = JSON.parse(getLocalStorageData)
+  }
+  if (listArray.length == 5) {
+    listArray.push(selectData)
+    listArray.shift()
+  } else {
+    listArray.push(selectData)
+  }
+  localStorage.setItem('Address', JSON.stringify(listArray))
+  showAddresses()
+
+  searchWrapper.classList.remove('active')
+  searchBar.classList.remove('active')
+  menu_wrapper.classList.add('show')
+  tooltip.classList.add('show')
+}
+
+function remove(element) {
+  let getLocalStorageData = localStorage.getItem('Address')
+  listArray = JSON.parse(getLocalStorageData)
+  listArray.splice(listArray.indexOf(element.innerText), 1)
+  localStorage.setItem('Address', JSON.stringify(listArray))
+  showAddresses()
 }
