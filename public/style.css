@@ -180,7 +180,7 @@ ul li .icon span {
 /* search suggest */
 .main .autocom-box {
   position: absolute;
-  top: 53px;
+  top: 51px;
   width: 600px;
   overflow: hidden;
   border-radius: 0 0 20px 20px;
@@ -197,7 +197,7 @@ ul li .icon span {
 }
 
 .autocom-box ul li {
-  line-height: 55px;
+  line-height: 45px;
   position: relative;
   color: white;
   font-size: 18px;
@@ -208,7 +208,7 @@ ul li .icon span {
 }
 
 .autocom-box ul li span.search-text {
-  width: 570px;
+  width: 550px;
   text-overflow: ellipsis;
   overflow: hidden;
   white-space: nowrap;
