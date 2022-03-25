@@ -160,8 +160,8 @@ body {
   background: #3a3b3c;
 }
 ul li .icon {
-  height: 40px;
-  width: 40px;
+  height: 35px;
+  width: 35px;
   margin-right: 13px;
   background: #ffffff1a;
   display: flex;
@@ -171,8 +171,8 @@ ul li .icon {
   overflow: auto;
 }
 ul li .icon span {
-  line-height: 40px;
-  font-size: 20px;
+  line-height: 36px;
+  font-size: 19px;
   color: white;
 }
 /* drop down */
