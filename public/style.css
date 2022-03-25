@@ -92,7 +92,7 @@ body {
 }
 .main .wrapper {
   position: absolute;
-  top: 65px;
+  top: 62px;
   display: flex;
   width: 600px;
   overflow: hidden;
@@ -180,7 +180,7 @@ ul li .icon span {
 /* search suggest */
 .main .autocom-box {
   position: absolute;
-  top: 56px;
+  top: 53px;
   width: 600px;
   overflow: hidden;
   border-radius: 0 0 20px 20px;
