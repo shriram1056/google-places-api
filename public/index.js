@@ -7,19 +7,6 @@ const suggBox = document.querySelector('.suggestion-box')
 const searchWrapper = document.querySelector('.autocom-box')
 const AddressBox = document.querySelector('.menu-bar')
 
-let suggestions = [
-  'API Hockey PROS Store,17-25 Meadowbank Rd, Cornwall, PE C0A 1H0',
-  'Mark Arendz Provincial Ski Park at Brookvale,2018 PE-13, North Wiltshire, PE C0A 1Y0',
-  'The Spice Store, 127 St Peters Rd, Charlottetown, PE C1A 5P3',
-  'Vlogger',
-  'Vechiles',
-  'Facebook',
-  'Freelancer',
-  'Facebook Page',
-  'Designer',
-  'Developer',
-]
-
 function showAddresses() {
   let getLocalStorageData = localStorage.getItem('Address')
   let addressesArray = JSON.parse(getLocalStorageData)
@@ -58,10 +45,16 @@ drop_btn.onclick = () => {
   searchBar.classList.remove('active')
 }
 
-search_input.onkeyup = (e) => {
+search_input.onkeyup = async (e) => {
   let userData = e.target.value
-  console.log(userData)
   if (userData) {
+    let res = await fetch(
+      '/places?' +
+        new URLSearchParams({
+          search: userData,
+        })
+    )
+    let suggestions = await res.json()
     emptyArray = suggestions.filter((data) => {
       //filtering array value and user characters to lowercase and return only those words which are start with user enetered chars
       return data.toLocaleLowerCase().startsWith(userData.toLocaleLowerCase())
@@ -108,7 +101,6 @@ function showSuggestions(list) {
 function select(element) {
   let selectData = element.innerText
   search_input.value = ''
-  console.log(selectData)
   let getLocalStorageData = localStorage.getItem('Address')
   if (getLocalStorageData == null) {
     listArray = []
