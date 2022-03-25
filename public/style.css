@@ -20,7 +20,7 @@ body {
   left: 50%;
   font-size: 100px;
   transform: translate(-50%, -50%);
-  color: #c1c7d1;
+  color: white;
 }
 .main {
   position: absolute;
@@ -28,17 +28,17 @@ body {
   left: 50%;
   transform: translate(-50%, -50%);
 }
-.main .drop-btn {
+.main .search_bar {
   width: 600px;
   background: #242526;
   border-radius: 5px;
-  color: #b0b3b8;
+  color: white;
   padding: 0 20px;
   display: flex;
 }
 .main input {
   flex-grow: 1;
-  color: #b0b3b8;
+  color: white;
   line-height: 55px;
   background: #242526;
   outline: none;
@@ -46,36 +46,40 @@ body {
   font-size: 20px;
   font-weight: 500;
 }
-.main .drop-btn span {
+.main .search_bar span {
   margin-left: auto;
   line-height: 50px;
-  font-size: 28px;
+  font-size: 24px;
   cursor: pointer;
 }
 
-.main .drop-btn span:nth-of-type(1) {
+.main .search_bar.active {
+  border-radius: 20px 20px 0 0;
+}
+.main .search_bar span:nth-of-type(1) {
   padding-right: 15px;
-  color: #919192;
+  color: white;
 }
 
-.main .drop-btn span:nth-of-type(2) {
-  border: 1px solid #b0b3b8;
-  color: #b0b3b8;
+.main .search_bar span:nth-of-type(2) {
+  border: 1px solid white;
+  color: white;
   height: 40px;
   margin: 8px 0;
 }
 
-.main .drop-btn span:nth-of-type(3) {
+.main .search_bar span:nth-of-type(3) {
   padding-left: 15px;
 }
 
+/* drop down */
 .main .tooltip {
   position: absolute;
   right: 20px;
   bottom: -20px;
   height: 15px;
   width: 15px;
-  background: #242526;
+  background: white;
   transform: rotate(45deg);
   display: none;
 }
@@ -95,7 +99,6 @@ body {
 }
 .main .wrapper.show {
   display: block;
-  display: flex;
 }
 .wrapper ul {
   width: 600px;
@@ -108,7 +111,7 @@ body {
 }
 .wrapper ul li a {
   position: relative;
-  color: #b0b3b8;
+  color: white;
   font-size: 18px;
   font-weight: 500;
   padding: 0 10px;
@@ -133,5 +136,50 @@ ul li a .icon {
 ul li a .icon span {
   line-height: 40px;
   font-size: 20px;
-  color: #b0b3b8;
+  color: white;
 }
+/* drop down */
+
+/* search suggest */
+.main .autocom-box {
+  position: absolute;
+  top: 56px;
+  width: 600px;
+  overflow: hidden;
+  border-radius: 0 0 20px 20px;
+  background: #242526;
+  display: none;
+  transition: all 0.3s ease;
+}
+
+.autocom-box ul {
+  width: 600px;
+  list-style: none;
+  padding: 10px;
+  transition: all 0.3s ease;
+}
+
+.autocom-box li {
+  line-height: 55px;
+}
+
+.autocom-box li a {
+  position: relative;
+  color: white;
+  font-size: 18px;
+  font-weight: 500;
+  padding: 0 10px;
+  display: flex;
+  border-radius: 8px;
+  align-items: center;
+  text-decoration: none;
+}
+
+.autocom-box ul li:hover a {
+  background: #3a3b3c;
+}
+
+.main .autocom-box.active {
+  display: block;
+}
+/* search suggest */
