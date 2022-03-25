@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Poppins:400,500,550,550&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,600&display=swap');
 * {
   margin: 0;
   padding: 0;
@@ -18,7 +18,7 @@ body {
   position: absolute;
   top: 27%;
   left: 50%;
-  font-size: 120px;
+  font-size: 100px;
   transform: translate(-50%, -50%);
   color: white;
 }
@@ -31,7 +31,7 @@ body {
 
 /* search bar */
 .main .search_bar {
-  width: 550px;
+  width: 600px;
   background: #242526;
   border-radius: 5px;
   color: white;
@@ -94,7 +94,7 @@ body {
   position: absolute;
   top: 65px;
   display: flex;
-  width: 550px;
+  width: 600px;
   overflow: hidden;
   border-radius: 5px;
   background: #242526;
@@ -105,13 +105,13 @@ body {
   display: block;
 }
 .wrapper ul {
-  width: 550px;
+  width: 600px;
   list-style: none;
   padding: 10px 0;
   transition: all 0.3s ease;
 }
 .wrapper ul li {
-  line-height: 55px;
+  line-height: 45px;
   position: relative;
   color: white;
   font-size: 18px;
@@ -122,7 +122,7 @@ body {
 }
 
 .wrapper ul li span.search-text {
-  width: 570px;
+  width: 520px;
   text-overflow: ellipsis;
   overflow: hidden;
   white-space: nowrap;
@@ -130,12 +130,12 @@ body {
 
 .wrapper li .delete-icon {
   position: absolute;
-  right: -55px;
+  right: -45px;
   top: 50%;
   transform: translateY(-50%);
   background: #e74c3c;
-  width: 55px;
-  height: 55px;
+  width: 45px;
+  height: 45px;
   text-align: center;
   justify-content: center;
   display: flex;
@@ -181,7 +181,7 @@ ul li .icon span {
 .main .autocom-box {
   position: absolute;
   top: 56px;
-  width: 550px;
+  width: 600px;
   overflow: hidden;
   border-radius: 0 0 20px 20px;
   background: #242526;
@@ -190,7 +190,7 @@ ul li .icon span {
 }
 
 .autocom-box ul {
-  width: 550px;
+  width: 600px;
   list-style: none;
   padding: 10px 0;
   transition: all 0.3s ease;
