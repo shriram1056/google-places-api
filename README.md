@@ -6,4 +6,4 @@ npm install
 
 npm start
 
-type localhost 3000
+type localhost 3000 in browser
